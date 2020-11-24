@@ -1,5 +1,3 @@
-# Starter for a TypeScript project
-
 # @bytesoftio/tag
 
 ## Installation

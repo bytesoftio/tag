@@ -36,7 +36,7 @@ const user: User = { id: "some-uuid" }
 
 This is very implicit and is not very `safe` since any string fulfills the constraints of the `UUID` type. What if could make this more explicit?
 
-```
+```ts
 import { Tag } from "@bytesoftio/tag"
 
 type UUID = Tag<string, "uuid">
@@ -46,10 +46,10 @@ type User = {
 } 
 
 // this will not work, string is not assignable to `UUID`
-const user: User = { id: "some-uuid" }
+const user1: User = { id: "some-uuid" }
 
 // exlicitly cast it to `UUID` -> you know what you're ding
-const user: User = { id: "some-uuid" as UUID } 
+const user2: User = { id: "some-uuid" as UUID } 
 ```
 
 Now you cannot simply assign a string to `UUID`, this has to be done explicitly. 

@@ -2678,9 +2678,6 @@ img {
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
-			<a href="#starter-for-a-typescript-project" id="starter-for-a-typescript-project" style="color: inherit; text-decoration: none;">
-				<h1>Starter for a TypeScript project</h1>
-			</a>
 			<a href="#bytesoftiotag" id="bytesoftiotag" style="color: inherit; text-decoration: none;">
 				<h1>@bytesoftio/tag</h1>
 			</a>
@@ -2710,19 +2707,20 @@ img {
 			<p>In this example we have created a type alias <code>UUID</code> that is used on the type <code>User</code>. At the moment, any <code>string</code> value is a valid uuid. For example:</p>
 			<pre><code class="language-ts"><pre class="shiki" style="background-color: #FFFFFF"><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #001080">user</span><span style="color: #000000">: </span><span style="color: #267F99">User</span><span style="color: #000000"> = { </span><span style="color: #001080">id:</span><span style="color: #000000"> </span><span style="color: #A31515">"some-uuid"</span><span style="color: #000000"> }</span></code></pre></code></pre>
 			<p>This is very implicit and is not very <code>safe</code> since any string fulfills the constraints of the <code>UUID</code> type. What if could make this more explicit?</p>
-			<pre><code>import { Tag } from &quot;@bytesoftio/tag&quot;
+			<pre><code class="language-ts"><pre class="shiki" style="background-color: #FFFFFF"><code><span style="color: #0000FF">import</span><span style="color: #000000"> { </span><span style="color: #001080">Tag</span><span style="color: #000000"> } </span><span style="color: #0000FF">from</span><span style="color: #000000"> </span><span style="color: #A31515">"@bytesoftio/tag"</span>
 
-type UUID = Tag&lt;string, &quot;uuid&quot;&gt;
+<span style="color: #0000FF">type</span><span style="color: #000000"> </span><span style="color: #267F99">UUID</span><span style="color: #000000"> = </span><span style="color: #267F99">Tag</span><span style="color: #000000">&lt;</span><span style="color: #267F99">string</span><span style="color: #000000">, </span><span style="color: #A31515">"uuid"</span><span style="color: #000000">&gt;</span>
 
-type User = {
-    id: UUID
-} 
+<span style="color: #0000FF">type</span><span style="color: #000000"> </span><span style="color: #267F99">User</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">    </span><span style="color: #001080">id</span><span style="color: #000000">: </span><span style="color: #267F99">UUID</span>
+<span style="color: #000000">} </span>
 
-// this will not work, string is not assignable to `UUID`
-const user: User = { id: &quot;some-uuid&quot; }
+<span style="color: #008000">// this will not work, string is not assignable to `UUID`</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #001080">user1</span><span style="color: #000000">: </span><span style="color: #267F99">User</span><span style="color: #000000"> = { </span><span style="color: #001080">id:</span><span style="color: #000000"> </span><span style="color: #A31515">"some-uuid"</span><span style="color: #000000"> }</span>
 
-// exlicitly cast it to `UUID` -&gt; you know what you&#39;re ding
-const user: User = { id: &quot;some-uuid&quot; as UUID } </code></pre><p>Now you cannot simply assign a string to <code>UUID</code>, this has to be done explicitly. </p>
+<span style="color: #008000">// exlicitly cast it to `UUID` -&gt; you know what you're ding</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #001080">user2</span><span style="color: #000000">: </span><span style="color: #267F99">User</span><span style="color: #000000"> = { </span><span style="color: #001080">id:</span><span style="color: #000000"> </span><span style="color: #A31515">"some-uuid"</span><span style="color: #000000"> </span><span style="color: #0000FF">as</span><span style="color: #000000"> </span><span style="color: #267F99">UUID</span><span style="color: #000000"> } </span></code></pre></code></pre>
+			<p>Now you cannot simply assign a string to <code>UUID</code>, this has to be done explicitly. </p>
 			<p>You can go further and add some type guards, a factory function, etc. for tagged types, but this is not covered here. </p>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
@@ -2747,7 +2745,7 @@ const user: User = { id: &quot;some-uuid&quot; as UUID } </code></pre><p>Now you
 				<div class="tsd-signature tsd-kind-icon">Tag&lt;TType, TTag&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TType</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>__tag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TTag</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/tag/blob/fbebfe4/src/types.ts#L1">types.ts:1</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/tag/blob/1850398/src/types.ts#L1">types.ts:1</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
